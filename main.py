@@ -38,13 +38,17 @@ def stop():
         instructions_label.config(text=f"TYPE THE TEXT:\n{sentence}")
         t0=time.time()
         start_button.config(text='STOP')
+        review_label.config(text=f"{0} WPM\n{0}% Accuracy\nTimeTaken:{(0):.02f} Mins")
+        enter_the_text_entry.delete(0,tk.END)
     elif x==-1:
         x*=-1
         t1=time.time()
         accuracy=len(set(enter_the_text_entry.get().split(" ")))&len(set(sentence.split(" ")))
         wordcount=len(set(sentence.split(" ")))
+        accuracy/=wordcount
         timetaken=t1-t0
         wpm=float(wordcount)/(timetaken/60)
+        instructions_label.config(text=f"TYPE THE TEXT:\n{'...'}")
         review_label.config(text=f"{wpm:.2f} WPM\n{accuracy*100:.2f}% Accuracy\nTimeTaken:{(timetaken/60):.02f} Mins")
         enter_the_text_entry.delete(0,tk.END)
         start_button.config(text='START')
@@ -64,7 +68,7 @@ instructions_label=tk.Label(text=f"TYPE THE TEXT:\n{sentence}",background=WHITE,
 instructions_label.grid(row=1,column=0,padx=5,pady=15,columnspan=3)
 start_typing_label=tk.Label(text="START TYPING: ",background=WHITE,font=("Cascadia Code",20))
 start_typing_label.grid(row=2,column=1,padx=5)
-review_label=tk.Label(text="",font=("Cascadia Code",20))
+review_label=tk.Label(text="",font=("Cascadia Code",20),background=WHITE)
 review_label.grid(row=4,column=1,padx=5)
 
 enter_the_text_entry=tk.Entry(width=50,font=("Cascadia Code",20,))
