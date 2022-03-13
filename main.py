@@ -43,7 +43,6 @@ def stop():
         t1=time.time()
         accuracy=len(set(enter_the_text_entry.get().split(" ")))&len(set(sentence.split(" ")))
         wordcount=len(set(sentence.split(" ")))
-        accuracy/=wordcount
         timetaken=t1-t0
         wpm=float(wordcount)/(timetaken/60)
         review_label.config(text=f"{wpm:.2f} WPM\n{accuracy*100:.2f}% Accuracy\nTimeTaken:{(timetaken/60):.02f} Mins")
