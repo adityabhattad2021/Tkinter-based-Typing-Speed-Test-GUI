@@ -73,15 +73,13 @@ review_label.grid(row=4,column=1,padx=5)
 
 enter_the_text_entry=tk.Entry(width=50,font=("Cascadia Code",20,))
 enter_the_text_entry.grid(row=3,column=0,padx=5,pady=2,columnspan=3)
-# enter_the_text_entry.bind("<KeyPress>",mainApp)
+
 enter_the_text_entry.focus()
 print(enter_the_text_entry.get())
 
 start_button=tk.Button(text='START',command=stop,font=("Cascadia Code",20))
 start_button.grid(row=5,column=1,padx=5,pady=15)
 
-# restart_button=tk.Button(text='RESTART',command=None,font=("Cascadia Code",20))
-# restart_button.grid(row=5,column=2,padx=5,pady=15)
 
 
 window.mainloop()
